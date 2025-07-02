@@ -37,7 +37,7 @@ export default function PravinThoratWebsite() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [activeSection, setActiveSection] = useState("home")
   const [animationData, setAnimationData] = useState(null)
-
+ const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null)
   const [isLoading, setIsLoading] = useState(true)
   const [loaderAnimationData, setLoaderAnimationData] = useState(null)
 
@@ -665,7 +665,7 @@ export default function PravinThoratWebsite() {
       </section>
 
       {/* FAQ Section */}
-      <section id="faq" className="py-20 px-4 bg-slate-900">
+      {/* <section id="faq" className="py-20 px-4 bg-slate-900">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold mb-4 text-white">Frequently Asked Questions</h2>
@@ -697,8 +697,58 @@ export default function PravinThoratWebsite() {
             </Button>
           </div>
         </div>
-      </section>
+      </section> */}
+      <section id="faq" className="py-20 px-4 bg-slate-900">
+    <div className="max-w-4xl mx-auto">
+      <div className="text-center mb-16">
+        <h2 className="text-4xl font-bold mb-4 text-white">Frequently Asked Questions</h2>
+        <p className="text-xl text-gray-400">
+          Get answers to common questions about financial planning and insurance.
+        </p>
+        <div className="w-24 h-1 bg-blue-500 mx-auto mt-8"></div>
+      </div>
 
+      <div className="space-y-6">
+        {faqs.map((faq, index) => (
+          <Card key={index} className="bg-slate-800 border-slate-700">
+            <CardContent className="p-6">
+              <button
+                className="w-full flex items-center justify-between text-lg font-semibold text-white mb-3 focus:outline-none"
+                onClick={() => setOpenFaqIndex(openFaqIndex === index ? null : index)}
+                aria-expanded={openFaqIndex === index}
+                aria-controls={`faq-answer-${index}`}
+              >
+                <span className="flex items-center">
+                  <ChevronDown
+                    className={`h-5 w-5 text-blue-400 mr-2 transition-transform duration-200 ${
+                      openFaqIndex === index ? "rotate-180" : ""
+                    }`}
+                  />
+                  {faq.question}
+                </span>
+              </button>
+              {openFaqIndex === index && (
+                <p
+                  id={`faq-answer-${index}`}
+                  className="text-gray-300 leading-relaxed pl-7 transition-all duration-200"
+                >
+                  {faq.answer}
+                </p>
+              )}
+            </CardContent>
+          </Card>
+        ))}
+      </div>
+
+      <div className="text-center mt-12">
+        <p className="text-gray-400 mb-6">Have more questions? I'm here to help!</p>
+        <Button size="lg" className="bg-blue-600 hover:bg-blue-700" onClick={() => scrollToSection("contact")}>
+          <MessageCircle className="mr-2 h-5 w-5" />
+          Ask Your Question
+        </Button>
+      </div>
+    </div>
+  </section>
       {/* Contact Section */}
       <section id="contact" className="py-20 px-4 bg-gradient-to-br from-slate-800 to-slate-900">
         <div className="max-w-7xl mx-auto">
