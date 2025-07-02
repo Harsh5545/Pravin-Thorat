@@ -42,12 +42,12 @@ export default function PravinThoratWebsite() {
   const [loaderAnimationData, setLoaderAnimationData] = useState(null)
 
   // Load loader animation
-  useEffect(() => {
-    fetch("/animations/loader.json")
-      .then((response) => response.json())
-      .then((data) => setLoaderAnimationData(data))
-      .catch((error) => console.error("Error loading loader animation:", error))
-  }, [])
+  // useEffect(() => {
+  //   fetch("/animations/loader.json")
+  //     .then((response) => response.json())
+  //     .then((data) => setLoaderAnimationData(data))
+  //     .catch((error) => console.error("Error loading loader animation:", error))
+  // }, [])
 
   // Simulate loading time
   useEffect(() => {
@@ -830,7 +830,7 @@ export default function PravinThoratWebsite() {
                 <CardHeader>
                   <CardTitle className="text-2xl text-blue-400">Schedule Free Consultation</CardTitle>
                 </CardHeader>
-                <CardContent>
+                {/* <CardContent>
                   <p className="text-gray-300 mb-6">
                     Get personalized financial advice tailored to your goals. No obligation, just expert guidance to
                     help you make informed decisions about your financial future.
@@ -858,7 +858,50 @@ export default function PravinThoratWebsite() {
                       Send Email Inquiry
                     </Button>
                   </div>
-                </CardContent>
+                </CardContent> */}
+                <CardContent>
+  <p className="text-gray-300 mb-6">
+    Get personalized financial advice tailored to your goals. No obligation, just expert guidance to
+    help you make informed decisions about your financial future.
+  </p>
+
+  <div className="space-y-4 flex gap-1 flex-col ">
+    <a href="tel:9869111462">
+      <Button className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3">
+        <Phone className="mr-2 h-5 w-5" />
+        Call Now for Free Consultation
+      </Button>
+    </a>
+
+    <a
+      href="https://wa.me/919869111462?text=Hi%20Pravin%2C%20I%20am%20interested%20in%20financial%20advice."
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <Button
+        variant="outline"
+        className="w-full border-green-500 text-green-400 hover:bg-green-500 hover:text-white py-3 bg-transparent"
+      >
+        <MessageCircle className="mr-2 h-5 w-5" />
+        WhatsApp Chat
+      </Button>
+    </a>
+
+    <a
+      href="mailto:siddhesht60@gmail.com?subject=Financial%20Consultation%20Inquiry&body=Hi%20Pravin%2C%20I%20would%20like%20to%20know%20more%20about%20your%20services."
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <Button
+        variant="outline"
+        className="w-full border-red-500 text-red-400 hover:bg-red-500 hover:text-white py-3 bg-transparent"
+      >
+        <Mail className="mr-2 h-5 w-5" />
+        Send Email Inquiry
+      </Button>
+    </a>
+  </div>
+</CardContent>
               </Card>
 
               <Card className="bg-gradient-to-br from-red-600 to-blue-600 border-0 text-white">
@@ -912,13 +955,18 @@ export default function PravinThoratWebsite() {
                 Your trusted financial partner for insurance, mutual funds, and comprehensive financial planning.
               </p>
               <div className="flex space-x-4">
+                <a
+  href="https://www.instagram.com/pravin_licmfadvisor/"
+  target="_blank"
+  rel="noopener noreferrer"
+>
                 <Button
                   size="sm"
                   variant="outline"
                   className="border-red-500 text-red-400 hover:bg-red-500 hover:text-white bg-transparent"
                 >
                   <Instagram className="h-4 w-4" />
-                </Button>
+                </Button></a>
               </div>
             </div>
 
